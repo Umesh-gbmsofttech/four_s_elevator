@@ -6,9 +6,9 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
 import ProductsPage from './pages/ProductsPage';
-import ScrollToTopButton from './components/ScrollToTop'; // The floating button
+import ContactPage from './pages/ContactPage'; // 1. IMPORT THE CONTACT PAGE
+import ScrollToTopButton from './components/ScrollToTop';
 
-// Helper component to reset scroll position on page change
 function ScrollToTop() {
   const { pathname } = useLocation();
   React.useEffect(() => {
@@ -20,15 +20,18 @@ function ScrollToTop() {
 function App() {
   return (
     <Router>
-      <ScrollToTop /> {/* Resets scroll position when URL changes */}
+      <ScrollToTop />
       <Navbar />
-      <ScrollToTopButton /> {/* Floating button to scroll up */}
+      <ScrollToTopButton />
       
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/products" element={<ProductsPage />} />
+        
+        {/* 2. ADD THE CONTACT ROUTE HERE */}
+        <Route path="/contact" element={<ContactPage />} /> 
       </Routes>
       
       <Footer />

@@ -14,7 +14,7 @@ const routeConfig = [
   { path: "/about", name: "About" },
   { path: "/products", name: "Products" },
   { path: "/services", name: "Services" },
-  { path: "/reviews", name: "Reviews" },
+  { path: "/contact", name: "Contact" },
 ];
 
 const GlassBar = styled(AppBar)(() => ({
