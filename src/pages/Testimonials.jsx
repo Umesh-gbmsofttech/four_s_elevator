@@ -7,7 +7,7 @@ const testimonials = [
     id: 1,
     name: "Abraham Paulson",
     role: "Home Owner",
-    content: "Recently, we installed an Aaron elevator in our home, which has been a great decision. Safety and affordability were our priorities, and they delivered both.",
+    content: "Recently, we installed a Four S elevator in our home, which has been a great decision. Safety and affordability were our priorities, and they delivered both.",
     rating: 5,
     verified: true
   },
@@ -15,7 +15,7 @@ const testimonials = [
     id: 2,
     name: "Nature Amaze",
     role: "Business Owner",
-    content: "I find the stylish design of the Aaron elevator to be one of its standout features. It adds a modern touch to our building architecture. Highly recommend it!",
+    content: "I find the stylish design of the Four S elevator to be one of its standout features. It adds a modern touch to our building architecture. Highly recommend it!",
     rating: 5,
     verified: true
   },
@@ -31,7 +31,7 @@ const testimonials = [
     id: 4,
     name: "Hafsath Hamsa",
     role: "Architect",
-    content: "Aaron elevators add elegance and charm to any building. It provides a sophisticated appearance at an affordable price compared to other brands.",
+    content: "Four S elevators add elegance and charm to any building. It provides a sophisticated appearance at an affordable price compared to other brands.",
     rating: 5,
     verified: true
   },
@@ -39,7 +39,7 @@ const testimonials = [
     id: 5,
     name: "Nidhin J",
     role: "Contractor",
-    content: "Last month, I visited a mall where we had the opportunity to use an Aaron elevator. Its design and structure were stunning, leaving a lasting impression.",
+    content: "Last month, I visited a mall where we had the opportunity to use a Four S elevator. Its design and structure were stunning, leaving a lasting impression.",
     rating: 4,
     verified: true
   },
@@ -47,7 +47,7 @@ const testimonials = [
     id: 6,
     name: "Sruthi Jayaram",
     role: "Residential Client",
-    content: "Trusting a Government approved elevator company was crucial for our project, and Aaron Elevators delivered flawlessly. Seamless experience.",
+    content: "Trusting a Government approved elevator company was crucial for our project, and Four S Elevators delivered flawlessly. Seamless experience.",
     rating: 5,
     verified: true
   }
@@ -76,7 +76,7 @@ const Testimonials = () => {
             TESTIMONIALS
           </motion.h1>
           <p className="mt-6 text-gray-500 max-w-2xl mx-auto text-lg">
-            Hear from our satisfied clients across Kerala who have experienced the Aaron difference in vertical transportation.
+            Hear from our satisfied clients across Pune who have experienced the Four S difference in vertical transportation.
           </p>
         </div>
 
@@ -136,7 +136,7 @@ const Testimonials = () => {
           className="mt-20 bg-gray-900 rounded-[3rem] p-12 text-center text-white"
         >
           <h2 className="text-3xl font-black mb-4 uppercase tracking-tight">Be Our Next Satisfied Client</h2>
-          <p className="text-gray-400 mb-8 max-w-xl mx-auto">Join hundreds of building owners who trust Aaron Elevators for safety and style.</p>
+          <p className="text-gray-400 mb-8 max-w-xl mx-auto">Join hundreds of building owners who trust Four S Elevators for safety and style.</p>
           <button className="bg-yellow-500 text-black px-10 py-4 rounded-full font-black uppercase tracking-widest text-sm hover:bg-yellow-400 transition-colors">
             Leave a Review
           </button>

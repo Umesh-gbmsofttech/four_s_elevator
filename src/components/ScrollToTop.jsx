@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronUp } from 'lucide-react';
+import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronUp } from "lucide-react";
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Show button when page is scrolled down
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.pageYOffset > 300) {
@@ -22,7 +21,7 @@ const ScrollToTop = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
@@ -33,10 +32,27 @@ const ScrollToTop = () => {
           initial={{ opacity: 0, scale: 0.5, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.5, y: 20 }}
-          whileHover={{ scale: 1.1, backgroundColor: '#000' }}
+          transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+          whileHover={{ scale: 1.08, backgroundColor: "#102332", y: -4 }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-[1001] bg-[#fcc419] text-black p-3 rounded-full shadow-2xl border border-white/20 flex items-center justify-center"
+          style={{
+            position: "fixed",
+            right: "1.5rem",
+            bottom: "1.5rem",
+            zIndex: 1001,
+            width: "3.4rem",
+            height: "3.4rem",
+            border: "1px solid rgba(255,255,255,0.25)",
+            borderRadius: "999px",
+            background: "#d6a53a",
+            color: "#08131d",
+            boxShadow: "0 20px 45px rgba(8, 19, 29, 0.28)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            cursor: "pointer",
+          }}
           aria-label="Scroll to top"
         >
           <ChevronUp size={24} strokeWidth={3} />

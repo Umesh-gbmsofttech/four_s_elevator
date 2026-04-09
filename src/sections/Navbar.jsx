@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import { AppBar, Box, Toolbar, Button, Menu, MenuItem, IconButton } from "@mui/material";
+import { AppBar, Box, Toolbar, Button, Menu, MenuItem, IconButton, Typography } from "@mui/material";
 import { styled, alpha } from "@mui/material/styles";
+import { ArrowOutwardRounded, Menu as MenuIcon } from "@mui/icons-material";
 import { Link, useLocation } from "react-router-dom";
-import {
-  LanguageOutlined,
-  KeyboardArrowDownOutlined,
-  Menu as MenuIcon,
-} from "@mui/icons-material";
 import { motion } from "framer-motion";
+import { companyProfile } from "../content/siteContent";
 
 const routeConfig = [
   { path: "/", name: "Home" },
@@ -18,11 +15,11 @@ const routeConfig = [
 ];
 
 const GlassBar = styled(AppBar)(() => ({
-  backgroundColor: alpha("#ffffff", 0.9),
-  boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
-  backdropFilter: "blur(20px)",
-  borderBottom: `1px solid ${alpha("#000000", 0.08)}`,
-  color: "#1a1a1a",
+  backgroundColor: alpha("#08131d", 0.72),
+  boxShadow: "0 18px 45px rgba(8,19,29,0.18)",
+  backdropFilter: "blur(18px)",
+  borderBottom: `1px solid ${alpha("#ffffff", 0.08)}`,
+  color: "#f5f1ea",
 }));
 
 const NavLink = styled(Link, {
@@ -31,52 +28,47 @@ const NavLink = styled(Link, {
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
-  color: active ? "#fcc419" : "#5f6368",
+  color: active ? "#d6a53a" : alpha("#f5f1ea", 0.78),
   fontWeight: 700,
-  fontSize: "0.85rem",
+  fontSize: "0.92rem",
   lineHeight: 1.75,
-  padding: theme.spacing(1, 2.5),
-  borderRadius: theme.shape.borderRadius,
+  padding: theme.spacing(1, 2),
+  borderRadius: "999px",
   textDecoration: "none",
-  transition: "all 0.2s ease",
+  transition: "all 0.25s ease",
   "&:hover": {
-    backgroundColor: "transparent",
-    color: "#000000",
+    backgroundColor: alpha("#ffffff", 0.06),
+    color: "#ffffff",
   },
 }));
 
-export const Navbar = () => {
+export const Navbar = ({ onOpenContactModal }) => {
   const location = useLocation();
-  const [langAnchor, setLangAnchor] = useState(null);
   const [mobileNavAnchor, setMobileNavAnchor] = useState(null);
-  const [language, setLanguage] = useState("English (US)");
-
-  const handleLangOpen = (event) => setLangAnchor(event.currentTarget);
-  const handleMobileNavOpen = (event) => setMobileNavAnchor(event.currentTarget);
-  const handleMobileNavClose = () => setMobileNavAnchor(null);
-  
-  const handleLangClose = (label) => {
-    if (typeof label === "string") setLanguage(label);
-    setLangAnchor(null);
-  };
 
   return (
-    <motion.div
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
+    <motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5 }}>
       <GlassBar position="fixed" elevation={0}>
         <Toolbar
           sx={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            px: { xs: 1.5, sm: 2, md: 3 },
+            px: { xs: 1.5, sm: 2.5, md: 4 },
+            minHeight: { xs: 72, md: 82 },
+            gap: 2,
           }}
         >
-          {/* LEFT: Navigation Links (Replaces Logo Space) */}
-          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 0.5, flex: 1 }}>
+          <Box component={Link} to="/" sx={{ textDecoration: "none", color: "inherit", minWidth: 0 }}>
+            <Typography sx={{ fontSize: { xs: "1rem", md: "1.15rem" }, fontWeight: 900, letterSpacing: "0.12em" }}>
+              FOUR S
+            </Typography>
+            <Typography sx={{ color: alpha("#f5f1ea", 0.64), fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>
+              Elevators | Pune
+            </Typography>
+          </Box>
+
+          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 0.5, flex: 1, justifyContent: "center" }}>
             {routeConfig.map((route) => (
               <NavLink key={route.path} to={route.path} active={location.pathname === route.path}>
                 {route.name}
@@ -84,84 +76,94 @@ export const Navbar = () => {
             ))}
           </Box>
 
-          {/* RIGHT: Language & Mobile Toggle */}
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "center",
-              gap: 1,
-            }}
-          >
+          <Box sx={{ display: "flex", justifyContent: "flex-end", alignItems: "center", gap: 1 }}>
             <IconButton
-              onClick={handleMobileNavOpen}
+              onClick={(event) => setMobileNavAnchor(event.currentTarget)}
               sx={{
                 display: { xs: "inline-flex", md: "none" },
-                color: "#1a1a1a",
-                border: `1px solid ${alpha("#000000", 0.08)}`,
-                borderRadius: "10px",
-                bgcolor: alpha("#ffffff", 0.9),
+                color: "#f5f1ea",
+                border: `1px solid ${alpha("#ffffff", 0.12)}`,
+                borderRadius: "12px",
+                bgcolor: alpha("#ffffff", 0.04),
               }}
             >
               <MenuIcon />
             </IconButton>
 
             <Button
-              variant="text"
-              startIcon={<LanguageOutlined sx={{ fontSize: 18 }} />}
-              endIcon={<KeyboardArrowDownOutlined sx={{ fontSize: 16 }} />}
-              onClick={handleLangOpen}
+              onClick={onOpenContactModal}
+              endIcon={<ArrowOutwardRounded sx={{ fontSize: 18 }} />}
               sx={{
-                textTransform: "none",
-                fontWeight: 700,
-                color: "#1a1a1a",
-                borderRadius: "8px",
-                px: 2,
+                textTransform: "uppercase",
+                fontWeight: 800,
+                letterSpacing: "0.12em",
+                color: "#08131d",
+                backgroundColor: "#d6a53a",
+                borderRadius: "999px",
+                px: 2.4,
+                py: 1.15,
                 display: { xs: "none", sm: "inline-flex" },
+                "&:hover": { backgroundColor: "#f0bf55" },
               }}
             >
-              {language}
+              Talk to Four S
             </Button>
 
-            {/* Mobile Nav Menu */}
             <Menu
               anchorEl={mobileNavAnchor}
               open={Boolean(mobileNavAnchor)}
-              onClose={handleMobileNavClose}
-              PaperProps={{
-                sx: { mt: 1, minWidth: 220, borderRadius: "14px" },
+              onClose={() => setMobileNavAnchor(null)}
+              slotProps={{
+                paper: {
+                  sx: {
+                    mt: 1,
+                    minWidth: 240,
+                    borderRadius: "18px",
+                    backgroundColor: "#102332",
+                    color: "#f5f1ea",
+                    border: `1px solid ${alpha("#ffffff", 0.08)}`,
+                    boxShadow: "0 28px 70px rgba(0,0,0,0.4)",
+                  },
+                },
+                list: {
+                  sx: {
+                    py: 1,
+                  },
+                },
               }}
             >
+              <MenuItem disabled sx={{ opacity: 1, py: 1.5, color: "#f5f1ea" }}>
+                <Box>
+                  <Typography sx={{ fontWeight: 800 }}>{companyProfile.name}</Typography>
+                  <Typography sx={{ fontSize: "0.75rem", color: alpha("#ffffff", 0.72) }}>
+                    {companyProfile.label}
+                  </Typography>
+                </Box>
+              </MenuItem>
               {routeConfig.map((route) => (
                 <MenuItem
                   key={route.path}
                   component={Link}
                   to={route.path}
-                  onClick={handleMobileNavClose}
+                  onClick={() => setMobileNavAnchor(null)}
                   selected={location.pathname === route.path}
                   sx={{
                     py: 1.5,
                     fontWeight: 700,
-                    color: location.pathname === route.path ? "#fcc419" : "#1a1a1a",
+                    color: location.pathname === route.path ? "#d6a53a" : "#f5f1ea",
+                    "&.Mui-selected": {
+                      backgroundColor: alpha("#d6a53a", 0.12),
+                      color: "#d6a53a",
+                    },
+                    "&.Mui-selected:hover": {
+                      backgroundColor: alpha("#d6a53a", 0.18),
+                    },
+                    "&:hover": {
+                      backgroundColor: alpha("#ffffff", 0.08),
+                    },
                   }}
                 >
                   {route.name}
-                </MenuItem>
-              ))}
-            </Menu>
-
-            {/* Language Menu */}
-            <Menu
-              anchorEl={langAnchor}
-              open={Boolean(langAnchor)}
-              onClose={() => setLangAnchor(null)}
-              PaperProps={{
-                sx: { mt: 1, borderRadius: "12px" },
-              }}
-            >
-              {["English (US)", "Malayalam", "Hindi"].map((lang) => (
-                <MenuItem key={lang} onClick={() => handleLangClose(lang)} sx={{ fontWeight: 600 }}>
-                  {lang}
                 </MenuItem>
               ))}
             </Menu>
