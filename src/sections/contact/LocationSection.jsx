@@ -27,7 +27,7 @@ const LocationSection = () => (
           boxShadow: "var(--shadow-xl)",
           border: `1px solid ${alpha("#102332", 0.08)}`,
           background:
-            "radial-gradient(circle at 15% 20%, rgba(214,165,58,0.18), transparent 22%), radial-gradient(circle at 85% 25%, rgba(16,35,50,0.08), transparent 24%), linear-gradient(135deg, #102332 0%, #173349 48%, #f6f0e5 48%, #fffdfa 100%)",
+            "radial-gradient(circle at 15% 20%, rgba(214,165,58,0.18), transparent 22%), radial-gradient(circle at 85% 25%, rgba(16,35,50,0.08), transparent 24%), linear-gradient(110deg, #102332 0%, #173349 48%, #f6f0e5 58%, #fffdfa 100%)",
         }}
       >
         <Box

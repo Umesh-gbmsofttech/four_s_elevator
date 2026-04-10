@@ -1,6 +1,9 @@
-import heroVideo from "./ani1.mp4";
+import heroVideo from "./Ani2.mp4";
+
 
 // Project Images
+import about from "./About.png";
+
 import konark from "./konark-tower-elevator-project-balewadi.png";
 import eden from "./eden-space-elevator-project-pune.png";
 import sonigara from "./sonigara-laurel-elevator-project-pune.png";
@@ -35,6 +38,7 @@ import center_opening from "./center-opening-elevator-door-pune-01.png";
 import telescopic from "./telescopic-elevator-door-pune-01.png";
 
 // Service Images
+import contactservice from "./contact.png";
 import amc_service from "./amc-service-elevator-maintenance-pune-01.png";
 import breakdown_support from "./elevator-breakdown-support-pune-01.png";
 import modernization from "./elevator-modernization-project-pune-01.png";
@@ -42,6 +46,7 @@ import modernization from "./elevator-modernization-project-pune-01.png";
 export const siteMedia = {
   heroVideo,
   projects: {
+    about,
     konark,
     eden,
     sonigara,
@@ -81,6 +86,7 @@ export const siteMedia = {
     telescopic,
   },
   services: {
+    contactservice,
     amc_service,
     breakdown_support,
     modernization,

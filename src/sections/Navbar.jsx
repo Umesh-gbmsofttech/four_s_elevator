@@ -5,6 +5,7 @@ import { ArrowOutwardRounded, Menu as MenuIcon } from "@mui/icons-material";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { companyProfile } from "../content/siteContent";
+import logo from "../assets/4slogo.png"; 
 
 const routeConfig = [
   { path: "/", name: "Home" },
@@ -59,13 +60,23 @@ export const Navbar = ({ onOpenContactModal }) => {
             gap: 2,
           }}
         >
-          <Box component={Link} to="/" sx={{ textDecoration: "none", color: "inherit", minWidth: 0 }}>
-            <Typography sx={{ fontSize: { xs: "1rem", md: "1.15rem" }, fontWeight: 900, letterSpacing: "0.12em" }}>
-              FOUR S
-            </Typography>
-            <Typography sx={{ color: alpha("#f5f1ea", 0.64), fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>
-              Elevators | Pune
-            </Typography>
+          <Box component={Link} to="/" sx={{ display: "flex", alignItems: "center", textDecoration: "none", minWidth: 0 }}>
+            <Box
+              component="img"
+              src={logo}
+              alt="Four S Elevators"
+              sx={{
+                height: { xs: 45, md: 55 },
+                width: "auto",
+                objectFit: "contain",
+                /* DIRECTIONS:
+                   1. Use 'screen' if your logo has a black background.
+                   2. Use 'multiply' if your logo has a white background.
+                */
+                mixBlendMode: "screen", 
+                filter: "contrast(1.1) brightness(1.1)", 
+              }}
+            />
           </Box>
 
           <Box sx={{ display: { xs: "none", md: "flex" }, gap: 0.5, flex: 1, justifyContent: "center" }}>
@@ -125,11 +136,6 @@ export const Navbar = ({ onOpenContactModal }) => {
                     boxShadow: "0 28px 70px rgba(0,0,0,0.4)",
                   },
                 },
-                list: {
-                  sx: {
-                    py: 1,
-                  },
-                },
               }}
             >
               <MenuItem disabled sx={{ opacity: 1, py: 1.5, color: "#f5f1ea" }}>
@@ -155,12 +161,7 @@ export const Navbar = ({ onOpenContactModal }) => {
                       backgroundColor: alpha("#d6a53a", 0.12),
                       color: "#d6a53a",
                     },
-                    "&.Mui-selected:hover": {
-                      backgroundColor: alpha("#d6a53a", 0.18),
-                    },
-                    "&:hover": {
-                      backgroundColor: alpha("#ffffff", 0.08),
-                    },
+                    "&:hover": { backgroundColor: alpha("#ffffff", 0.08) },
                   }}
                 >
                   {route.name}
