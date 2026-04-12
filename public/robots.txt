@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://4selevators.com/sitemap.xml
