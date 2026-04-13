@@ -1,0 +1,16 @@
+{
+  "name": "Four S Elevators",
+  "short_name": "Four S",
+  "description": "Safe, reliable, and modern elevator solutions in Pune.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f1ea",
+  "theme_color": "#102332",
+  "icons": [
+    {
+      "src": "/four-s-elevators-pune-logo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
