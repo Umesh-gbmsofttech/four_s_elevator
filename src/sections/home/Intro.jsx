@@ -61,14 +61,10 @@ const Intro = () => {
           </Box>
         </Reveal>
 
-        <Grid
-          container
-          spacing={2}
-          sx={{ alignItems: "center", justifyContent: "center" }}
-        >
+        <Grid container spacing={2} alignItems="center" justifyContent="center">
           
           {/* LEFT SIDE: 2 Cards */}
-          <Grid size={{ xs: 12, md: 3.5 }} order={{ xs: 2, md: 1 }}>
+          <Grid item xs={12} md={3.5} order={{ xs: 2, md: 1 }}>
             <Stack spacing={3}> {/* Reduced spacing between cards */}
               {[0, 1].map((index) => (
                 <Reveal key={index} variant="fadeRight">
@@ -107,11 +103,7 @@ const Intro = () => {
           </Grid>
 
           {/* MIDDLE: Visual Image */}
-          <Grid
-            size={{ xs: 12, md: 5 }}
-            order={{ xs: 1, md: 2 }}
-            sx={{ display: "flex", justifyContent: "center" }}
-          >
+          <Grid item xs={12} md={5} order={{ xs: 1, md: 2 }} sx={{ display: 'flex', justifyContent: 'center' }}>
             <Reveal>
               <Box sx={{ 
                 width: { xs: 260, md: 380 }, 
@@ -132,7 +124,7 @@ const Intro = () => {
           </Grid>
 
           {/* RIGHT SIDE: 2 Cards */}
-          <Grid size={{ xs: 12, md: 3.5 }} order={{ xs: 3, md: 3 }}>
+          <Grid item xs={12} md={3.5} order={{ xs: 3, md: 3 }}>
             <Stack spacing={3}>
               {[2, 3].map((index) => (
                 <Reveal key={index} variant="fadeLeft">

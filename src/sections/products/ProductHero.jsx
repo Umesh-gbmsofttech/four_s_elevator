@@ -1,21 +1,20 @@
 import React from "react";
-import { Box, Chip, Container, Typography, alpha } from "@mui/material";
-import { contactContent } from "../../content/siteContent";
-import { siteMedia } from "../../assets/siteMedia";
+import { Box, Container, Typography, alpha } from "@mui/material";
 import { Reveal } from "../../components/motion/Reveal";
+import { siteMedia } from "../../assets/siteMedia";
 
-const HeroSection = () => (
+const ProductHero = ({ title, subtitle }) => (
   <Box
     sx={{
       position: "relative",
       minHeight: {
-        xs: "100dvh", // 🔥 mobile-safe full height
+        xs: "100dvh", // 🔥 mobile-friendly viewport
         md: "100vh",
       },
       display: "flex",
       alignItems: "center",
       overflow: "hidden",
-      color: "#fff",
+      color: "#f5f1ea",
       backgroundColor: "#08131d",
     }}
   >
@@ -23,7 +22,7 @@ const HeroSection = () => (
     <Box sx={{ position: "absolute", inset: 0 }}>
       <Box
         component="video"
-        src={siteMedia.heroVideo}
+        src={siteMedia.video}
         autoPlay
         muted
         loop
@@ -34,7 +33,7 @@ const HeroSection = () => (
           height: "100%",
           objectFit: "cover",
           opacity: 0.3,
-          transform: "scale(1.05)", // 🔥 subtle zoom
+          transform: "scale(1.05)", // 🔥 subtle zoom effect
         }}
       />
 
@@ -59,46 +58,46 @@ const HeroSection = () => (
       }}
     >
       <Reveal>
-        <Chip
-          label="Contact Four S"
+        <Typography
           sx={{
-            mb: 3,
-            color: "#f5f1ea",
-            backgroundColor: alpha("#ffffff", 0.08),
-            border: `1px solid ${alpha("#ffffff", 0.12)}`,
-            letterSpacing: "0.08em",
+            color: "#d6a53a",
             textTransform: "uppercase",
+            letterSpacing: "0.16em",
+            fontWeight: 800,
+            mb: 2,
           }}
-        />
+        >
+          Established Excellence
+        </Typography>
 
         <Typography
           variant="h1"
           sx={{
-            fontSize: { xs: "2.5rem", md: "4.8rem" },
+            fontSize: { xs: "2.5rem", md: "4.5rem" },
             fontWeight: 900,
             lineHeight: 1.05,
-            maxWidth: 880,
+            maxWidth: 900,
             mx: "auto",
           }}
         >
-          {contactContent.heroTitle}
+          {title}
         </Typography>
 
         <Typography
           sx={{
             mt: 3,
-            maxWidth: 680,
-            color: alpha("#ffffff", 0.76),
+            color: alpha("#ffffff", 0.74),
             lineHeight: 1.9,
+            maxWidth: 750,
             fontSize: "1.1rem",
             mx: "auto",
           }}
         >
-          {contactContent.heroText}
+          {subtitle}
         </Typography>
       </Reveal>
     </Container>
   </Box>
 );
 
-export default HeroSection;
+export default ProductHero;

@@ -1,5 +1,5 @@
 import heroVideo from "./Ani2.mp4";
-
+import video from "./Ani 3.mp4";
 
 // Project Images
 import about from "./About.png";
@@ -45,6 +45,7 @@ import modernization from "./elevator-modernization-project-pune-01.png";
 
 export const siteMedia = {
   heroVideo,
+  video,
   projects: {
     about,
     konark,
