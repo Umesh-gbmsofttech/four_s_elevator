@@ -1,4 +1,4 @@
-export const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxLED66_SeKEQzhxHlZDr-3BP84TnwnoGQ8bvO-ngVngynZq3N1u4POjEXvj-tNA6Si/exec";
+export const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxnbqgGX3VvETLl3bQYc09sKTWaH7YPbZcCPQXZIN6xQWyXxI40VL8bYnomWWBJlF4Tqw/exec";
 
 export async function submitContactLead(payload) {
   await fetch(SCRIPT_URL, {
