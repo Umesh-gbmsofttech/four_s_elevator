@@ -4,7 +4,7 @@ export const companyProfile = {
     city: "Pune, Maharashtra",
     phone: ["+91 88055 43746", "+91 73505 90674", "+91 89750 11818"],
     email: "4selevators@gmail.com",
-    address: "Mira Classic Building, Thergaon, Pune – 411033",
+    address: "Mira Classic Building, Thergaon, Pune - 411033",
     hours: "Mon - Sat, 9:00 AM - 6:30 PM",
     mission: "Deliver quality elevator solutions, maintain highest safety standards, and provide dependable after-sales service.",
     stats: {

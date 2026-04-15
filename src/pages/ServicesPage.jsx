@@ -82,32 +82,108 @@ const ServicesPage = () => {
       <AdvancedTechFlower />
 
       {/* 2. COMPLIANCE RIBBON (The Authority Proof) */}
-      <Box sx={{ 
-        py: 6, 
-        borderTop: "1px solid #f0f0f0", 
-        borderBottom: "1px solid #f0f0f0",
-        bgcolor: "#fafafa" 
-      }}>
-        <Container>
-          <Stack 
-            direction={{ xs: "column", md: "row" }} 
-            justifyContent="space-between" 
-            alignItems="center" 
-            spacing={4}
-            sx={{ opacity: 0.6, filter: "grayscale(100%)" }}
-          >
-            <Typography variant="h6" sx={{ fontWeight: 900, color: "#0F172A", letterSpacing: 2 }}>
-              ENGINEERING STANDARDS:
-            </Typography>
-            {/* Replace these with actual SVGs of ISO/IS logos */}
-            <Typography sx={{ fontWeight: 700 }}>ISO 9001:2015</Typography>
-            <Typography sx={{ fontWeight: 700 }}>IS 14665 (PART 3)</Typography>
-            <Typography sx={{ fontWeight: 700 }}>PUNE MUNICIPAL CORP. CERTIFIED</Typography>
-            <Typography sx={{ fontWeight: 700 }}>CE SAFETY RATED</Typography>
-          </Stack>
-        </Container>
+      {/* 2. COMPLIANCE RIBBON (Premium Version) */}
+<Box
+  component={motion.div}
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.6 }}
+  sx={{
+    py: { xs: 6, md: 8 },
+    bgcolor: "#f8f9fb",
+    borderTop: "1px solid #eee",
+    borderBottom: "1px solid #eee"
+  }}
+>
+  <Container maxWidth="lg">
+    <Stack
+      direction={{ xs: "column", md: "row" }}
+      spacing={4}
+      alignItems="center"
+      justifyContent="space-between"
+    >
+      {/* LEFT TEXT */}
+      <Box textAlign={{ xs: "center", md: "left" }}>
+        <Typography
+          sx={{
+            color: "#C5A059",
+            fontSize: "0.75rem",
+            fontWeight: 700,
+            letterSpacing: 3,
+            mb: 1
+          }}
+        >
+          ENGINEERING EXCELLENCE
+        </Typography>
+
+        <Typography
+          sx={{
+            fontWeight: 900,
+            fontSize: { xs: "1.4rem", md: "1.8rem" },
+            color: "#0F172A"
+          }}
+        >
+          Certified & Trusted Standards
+        </Typography>
       </Box>
 
+      {/* RIGHT BADGES */}
+      <Stack
+        direction="row"
+        spacing={2}
+        flexWrap="wrap"
+        justifyContent="center"
+      >
+        {[
+          "ISO 9001:2015",
+          "IS 14665 (Part 3)",
+          "PMC Approved",
+          "CE Safety Rated"
+        ].map((item, i) => (
+          <Box
+            key={i}
+            component={motion.div}
+            whileHover={{ y: -4, scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+            sx={{
+              px: 2.5,
+              py: 1.5,
+              minWidth: "180px", // 👈 keeps all cards same width
+              height: "48px",    // 👈 equal height for perfect alignment
+            
+              display: "flex",           // 👇 center fix
+              alignItems: "center",
+              justifyContent: "center",
+            
+              textAlign: "center",
+            
+              borderRadius: "30px",
+              fontWeight: 700,
+              fontSize: "0.8rem",
+            
+              bgcolor: "rgba(255,255,255,0.7)",
+              backdropFilter: "blur(12px)",
+              border: "1px solid rgba(0,0,0,0.05)",
+              boxShadow: "0 8px 20px rgba(0,0,0,0.05)",
+              color: "#0F172A",
+            
+              transition: "all 0.3s ease",
+            
+              "&:hover": {
+                bgcolor: "#C5A059",
+                color: "#fff",
+                boxShadow: "0 10px 25px rgba(197,160,89,0.4)"
+              }
+            }}
+          >
+            {item}
+          </Box>
+        ))}
+      </Stack>
+    </Stack>
+  </Container>
+</Box>
       <ServiceCTA />
       
     </Box>

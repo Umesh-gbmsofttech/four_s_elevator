@@ -1,12 +1,12 @@
 import React from "react";
 import { Box } from "@mui/material";
 
-// Import Section Components
 import Hero from "../sections/home/Hero";
 import Intro from "../sections/home//Intro";
 import Expertise from "../sections/home/Expertise";
 import PortfolioSnapshot from "../sections/home/PortfolioSnapshot";
 import DeliveryModel from "../sections/home/DeliveryModel";
+import Testimonials from "../sections/home/Testimonials";
 
 const HomePage = () => {
   return (
@@ -16,6 +16,7 @@ const HomePage = () => {
       <Expertise />
       <PortfolioSnapshot />
       <DeliveryModel />
+      <Testimonials />
     </Box>
   );
 };

@@ -81,7 +81,7 @@ const ContactModal = ({ open, onClose }) => {
               initial={{ y: 24, opacity: 0, scale: 0.98 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ y: 24, opacity: 0, scale: 0.98 }}
-              style={{ outline: "none", width: "100%", maxWidth: 560, maxHeight: "100%" }}
+              style={{ outline: "none", width: "100%", maxWidth: 610, maxHeight: "100%" }}
             >
               <Box
                 sx={{

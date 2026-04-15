@@ -152,11 +152,11 @@ const FormSection = () => {
         </Reveal>
       </Container>
 
-      <Snackbar open={openPopup} autoHideDuration={4000} onClose={() => setOpenPopup(false)} anchorOrigin={{ vertical: "bottom", horizontal: "center" }}>
-        <Alert onClose={() => setOpenPopup(false)} severity="success" sx={{ bgcolor: "#102332", color: "#fff", borderRadius: "16px", fontWeight: 800, borderLeft: "6px solid #d6a53a" }}>
-          Inquiry sent. Four S will contact you shortly.
-        </Alert>
-      </Snackbar>
+        <Snackbar open={openPopup} autoHideDuration={4000} onClose={() => setOpenPopup(false)} anchorOrigin={{ vertical: "bottom", horizontal: "center" }}>
+          <Alert onClose={() => setOpenPopup(false)} severity="success" sx={{ bgcolor: "#102332", color: "#fff", borderRadius: "16px", fontWeight: 800, borderLeft: "6px solid #d6a53a" }}>
+            Inquiry sent. Four S will contact you shortly.
+          </Alert>
+        </Snackbar>
     </Box>
   );
 };

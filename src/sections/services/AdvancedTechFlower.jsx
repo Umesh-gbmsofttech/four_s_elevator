@@ -211,7 +211,7 @@ const AdvancedTechFlower = () => {
                 transition={{ duration: 0.4 }}
               >
                 <Typography sx={{ color: GOLD, fontWeight: 900, letterSpacing: 4, mb: 1, fontSize: "0.7rem" }}>
-                  PREMIUM_FINISH // {techData[activeIdx].id}
+                  PREMIUM_FINISH 
                 </Typography>
                 
                 <Typography variant="h2" sx={{ 

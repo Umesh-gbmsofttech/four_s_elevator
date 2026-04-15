@@ -17,7 +17,6 @@ import {
 import { siteMedia } from "../../assets/siteMedia";
 import { keyframes } from "@mui/system";
 
-// Icons
 import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 
@@ -34,39 +33,39 @@ const TechnicalBento = () => {
   const systems = {
     cabin: {
       title: "Cabin Architecture",
-      subtitle: "SYSTEMS // C-01",
+      subtitle: "SYSTEMS",
       items: [
         {
           name: "SS Cabin",
           detail: "Stainless Steel 304",
-          img: siteMedia.designs.ss_cabin,
+          img: siteMedia.designs?.ss_cabin,
           description:
-            "Durable stainless steel cabin with corrosion resistance and premium modern look.",
-          why: "Perfect for long-term use in residential and commercial spaces."
+            "Durable stainless steel cabin with corrosion resistance and modern premium finish.",
+          why: "Ideal for long-term residential and commercial usage."
         },
         {
           name: "MS Cabin",
           detail: "Powder Coated",
-          img: siteMedia.designs.ms_cabin,
+          img: siteMedia.designs?.ms_cabin,
           description:
-            "Affordable mild steel cabin offering strong structure and durable coating protection.",
-          why: "Best for budget-friendly installations."
+            "Strong mild steel cabin with powder coating for durability and protection.",
+          why: "Best suited for budget-friendly installations."
         },
         {
           name: "Premium Cabin",
           detail: "Gold Finish",
-          img: siteMedia.designs.gold_cabin,
+          img: siteMedia.designs?.gold_cabin,
           description:
-            "Luxury cabin with gold designer finish offering premium elegance and durability .",
-          why: "Used in malls, hotels and premium buildings."
+            "Luxury gold finish cabin designed for elegance and high-end environments.",
+          why: "Used in hotels, malls, and premium buildings."
         },
         {
           name: "Glass Cabin",
           detail: "Panoramic",
-          img: siteMedia.products.panoramic,
+          img: siteMedia.products?.panoramic,
           description:
-            "Full glass panoramic lift designed with modern architecture style and elegance .",
-          why: "Best for showrooms and high-end spaces."
+            "Panoramic glass cabin offering modern design with full visibility and aesthetics.",
+          why: "Perfect for showrooms and premium architectural spaces."
         }
       ],
       metrics: { label: "ACOUSTIC", value: "45dB" }
@@ -74,37 +73,39 @@ const TechnicalBento = () => {
 
     entrance: {
       title: "Entrance Systems",
-      subtitle: "SYSTEMS // E-01",
+      subtitle: "SYSTEMS",
       items: [
         {
           name: "Glass Door",
           detail: "Modern",
-          img: siteMedia.doors.full_vision_glass,
+          img: siteMedia.doors?.full_vision_glass,
           description:
-            "Stylish full glass door with smooth automatic operation and modern design.",
-          why: "Best for premium look and visibility."
+            "Full glass automatic door with smooth operation and premium modern appearance.",
+          why: "Enhances visibility and modern aesthetics."
         },
         {
           name: "IFG Door",
           detail: "Secure",
-          img: siteMedia.doors.ifg_door,
-          description: "Fire-rated strong door designed for enhanced safety compliance and durability.",
-          why: "Used in high-safety environments."
+          img: siteMedia.doors?.ifg_door,
+          description:
+            "Fire-rated IFG door ensuring safety compliance and high structural strength.",
+          why: "Ideal for safety-critical environments."
         },
         {
           name: "Telescopic Door",
           detail: "Fast",
-          img: siteMedia.doors.telescopic,
+          img: siteMedia.doors?.telescopic,
           description:
             "Fast sliding telescopic door designed for heavy traffic and smooth operation.",
-          why: "Ideal for commercial buildings."
+          why: "Perfect for commercial high-usage areas."
         },
         {
           name: "Swing Door",
           detail: "Classic",
-          img: siteMedia.doors.swing_door,
-          description: "Manual swing door designed for simple operations and reliable daily usage.",
-          why: "Best for small and low-cost setups."
+          img: siteMedia.doors?.swing_door,
+          description:
+            "Manual swing door with simple operation and reliable long-term usage.",
+          why: "Best for small and cost-effective setups."
         }
       ],
       metrics: { label: "CYCLE", value: "2.5M" }
@@ -112,24 +113,44 @@ const TechnicalBento = () => {
   };
 
   const current = activeTab === 0 ? systems.cabin : systems.entrance;
-  const activeItem = current.items[hoveredIndex] || current.items[0];
+  const activeItem =
+    current?.items?.[hoveredIndex] || current?.items?.[0] || {};
 
   return (
-    <Box sx={{ py: 8, bgcolor: "#F8F9FA" }}>
-      <Container maxWidth={false} sx={{ px: { xs: 2, md: 6 } }}>
+    <Box
+      sx={{
+        minHeight: "100vh",
+        py: "clamp(3rem, 6vh, 6rem)",
+        bgcolor: "#F8F9FA",
+        display: "flex",
+        alignItems: "center"
+      }}
+    >
+      <Container
+        maxWidth="xl"
+        sx={{
+          px: "clamp(1rem, 5vw, 6rem)"
+        }}
+      >
 
         {/* HEADER */}
         <Stack
-          direction={{ xs: "column", md: "row" }}
-          justifyContent="space-between"
+          spacing="clamp(1rem, 2vh, 2rem)"
           alignItems="center"
-          sx={{ mb: 6 }}
+          textAlign="center"
+          sx={{ mb: "clamp(2rem, 5vh, 4rem)" }}
         >
           <Box>
             <Typography sx={{ color: "#C5A059", fontWeight: 900 }}>
               {current.subtitle}
             </Typography>
-            <Typography variant="h3" sx={{ fontWeight: 900 }}>
+
+            <Typography
+              sx={{
+                fontWeight: 900,
+                fontSize: "clamp(1.5rem, 3vw, 2.8rem)"
+              }}
+            >
               {current.title}
             </Typography>
           </Box>
@@ -140,13 +161,15 @@ const TechnicalBento = () => {
               setActiveTab(v);
               setHoveredIndex(0);
             }}
+            centered
           >
             <Tab label="CABINS" />
             <Tab label="ENTRANCES" />
           </Tabs>
         </Stack>
 
-        <Grid container spacing={3} alignItems="stretch">
+        {/* MAIN GRID */}
+        <Grid container spacing={15} alignItems="stretch">
 
           {/* LEFT */}
           <Grid item xs={12} md={3}>
@@ -155,28 +178,29 @@ const TechnicalBento = () => {
                 <ButtonBase
                   key={idx}
                   onMouseEnter={() => setHoveredIndex(idx)}
+                  onClick={() => setHoveredIndex(idx)}
                   sx={{
                     p: 2,
-                    borderRadius: 2,
+                    borderRadius: "1rem",
                     border:
                       hoveredIndex === idx
                         ? "2px solid #C5A059"
                         : "1px solid #ddd",
                     bgcolor: "#fff",
-                    height: 80,
-                    display: "flex",
-                    alignItems: "center"
+                    justifyContent: "flex-start"
                   }}
                 >
                   <Stack direction="row" spacing={2} alignItems="center">
                     <Box
                       component="img"
                       src={item.img}
-                      sx={{ width: 60, height: 60, objectFit: "contain" }}
+                      sx={{ width: 55, height: 55 }}
                     />
                     <Box>
-                      <Typography fontWeight={700}>{item.name}</Typography>
-                      <Typography fontSize="0.8rem" color="text.secondary">
+                      <Typography fontWeight={700}>
+                        {item.name}
+                      </Typography>
+                      <Typography fontSize="0.8rem">
                         {item.detail}
                       </Typography>
                     </Box>
@@ -186,29 +210,28 @@ const TechnicalBento = () => {
             </Stack>
           </Grid>
 
-          {/* CENTER IMAGE - FIXED WITHOUT WRAPPER */}
+          {/* CENTER */}
           <Grid item xs={12} md={5}>
             <Box
               sx={{
-                height: 500,
-                borderRadius: 3,
+                height: "100%",
+                minHeight: "420px",
                 bgcolor: "#fff",
+                borderRadius: "1.5rem",
                 display: "flex",
-                alignItems: "center",
                 justifyContent: "center",
+                alignItems: "center",
                 position: "relative",
                 border: "1px solid #eee"
               }}
             >
-              {/* SCAN LINE */}
               <Box
                 sx={{
                   position: "absolute",
-                  left: 0,
-                  right: 0,
+                  width: "100%",
                   height: 2,
                   bgcolor: alpha("#C5A059", 0.4),
-                  animation: `${scanLine} 4s linear infinite`
+                  animation: `${scanLine} 4s infinite`
                 }}
               />
 
@@ -216,12 +239,9 @@ const TechnicalBento = () => {
                 <Box
                   component="img"
                   src={activeItem.img}
-                  alt={activeItem.name}
                   sx={{
-                    width: "100%",
-                    height: "100%",
-                    maxWidth: 420,
-                    maxHeight: 420,
+                    width: "80%",
+                    maxWidth: 320,
                     objectFit: "contain"
                   }}
                 />
@@ -238,11 +258,11 @@ const TechnicalBento = () => {
                   p: 3,
                   bgcolor: "#C5A059",
                   color: "#fff",
-                  borderRadius: 2
+                  borderRadius: "1rem"
                 }}
               >
                 <PrecisionManufacturingIcon />
-                <Typography fontWeight={700} mt={1}>
+                <Typography mt={1} fontWeight={700}>
                   {activeItem.name}
                 </Typography>
               </Box>
@@ -251,38 +271,38 @@ const TechnicalBento = () => {
                 sx={{
                   p: 3,
                   bgcolor: "#fff",
-                  borderRadius: 2,
-                  border: "1px solid #eee",
+                  borderRadius: "1rem",
                   flexGrow: 1,
                   display: "flex",
-                  flexDirection: "column"
+                  flexDirection: "column",
+                  border: "1px solid #eee"
                 }}
               >
                 <Typography fontWeight={700}>Description</Typography>
-                <Typography fontSize="0.85rem" mt={1}>
+                <Typography sx={{ mt: 1 }}>
                   {activeItem.description}
                 </Typography>
 
                 <Divider sx={{ my: 2 }} />
 
                 <Typography fontWeight={700}>Why Use This?</Typography>
-                <Typography fontSize="0.85rem" mt={1}>
+                <Typography sx={{ mt: 1 }}>
                   {activeItem.why}
                 </Typography>
 
                 <Divider sx={{ my: 2 }} />
 
-                <Typography fontSize="0.85rem">
+                <Typography>
                   {current.metrics.label}: {current.metrics.value}
                 </Typography>
 
                 <Button
                   fullWidth
-                  variant="contained"
                   startIcon={<EmailOutlinedIcon />}
                   sx={{
                     mt: "auto",
                     bgcolor: "#C5A059",
+                    color: "#fff",
                     borderRadius: "30px",
                     "&:hover": { bgcolor: "#000" }
                   }}
