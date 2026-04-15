@@ -37,10 +37,10 @@ const TechnicalBento = () => {
       items: [
         {
           name: "SS Cabin",
-          detail: "Stainless Steel 304",
+          detail: "Stainless Steel",
           img: siteMedia.designs?.ss_cabin,
           description:
-            "Durable stainless steel cabin with corrosion resistance and modern premium finish.",
+            "Durable stainless steel cabin with corrosion resistance and premium finish.",
           why: "Ideal for long-term residential and commercial usage."
         },
         {
