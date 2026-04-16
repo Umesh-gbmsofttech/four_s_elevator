@@ -27,7 +27,7 @@ const ServiceItem = ({ item, index }) => {
   const currentImage = SERVICE_ASSETS[index] || SERVICE_ASSETS[0];
 
   return (
-    <Grid item xs={12} sx={{ mb: { xs: 8, md: 16 } }}>
+    <Grid size={12} sx={{ mb: { xs: 8, md: 16 } }}>
       <Box
         component={motion.div}
         initial={{ opacity: 0, y: 40 }}

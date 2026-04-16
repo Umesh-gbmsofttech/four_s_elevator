@@ -12,6 +12,13 @@ import AdvancedTechFlower from "../sections/services/AdvancedTechFlower";
 import AdvanceEnginer from "../sections/services/AdvanceEnginer";
 
 const ServicesPage = () => {
+  const badgeLabels = [
+    "ISO 9001:2015",
+    "IS 14665 (Part 3)",
+    "PMC Approved",
+    "CE Safety Rated"
+  ];
+
   const { scrollYProgress } = useScroll();
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -100,11 +107,10 @@ const ServicesPage = () => {
     <Stack
       direction={{ xs: "column", md: "row" }}
       spacing={4}
-      alignItems="center"
-      justifyContent="space-between"
+      sx={{ alignItems: "center", justifyContent: "space-between" }}
     >
       {/* LEFT TEXT */}
-      <Box textAlign={{ xs: "center", md: "left" }}>
+      <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
         <Typography
           sx={{
             color: "#C5A059",
@@ -132,15 +138,9 @@ const ServicesPage = () => {
       <Stack
         direction="row"
         spacing={2}
-        flexWrap="wrap"
-        justifyContent="center"
+        sx={{ flexWrap: "wrap", justifyContent: "center" }}
       >
-        {[
-          "ISO 9001:2015",
-          "IS 14665 (Part 3)",
-          "PMC Approved",
-          "CE Safety Rated"
-        ].map((item, i) => (
+        {badgeLabels.map((badge, i) => (
           <Box
             key={i}
             component={motion.div}
@@ -177,7 +177,7 @@ const ServicesPage = () => {
               }
             }}
           >
-            {item}
+            {badge}
           </Box>
         ))}
       </Stack>

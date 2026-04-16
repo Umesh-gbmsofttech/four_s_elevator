@@ -33,10 +33,10 @@ import ceiling_panel from "./custom-elevator-ceiling-panel-pune-01.png";
 // Door Images
 import full_vision_glass from "./full-vision-glass-door-elevator-pune-01.png";
 import half_vision_glass from "./half-vision-glass-door-elevator-pune-01.png";
-import ifg_door from "./ifg-door-elevator-pune-01.png";
-import swing_door from "./swing-door-elevator-pune-01.png";
+import ifg_door from "./IFG_door.png";
+import swing_door from "./swing.png";
 import center_opening from "./center-opening-elevator-door-pune-01.png";
-import telescopic from "./telescopic-elevator-door-pune-01.png";
+import telescopic from "./Telescopic.png";
 
 // Service Images
 import contactservice from "./contact.png";
@@ -48,7 +48,7 @@ export const siteMedia = {
   heroVideo,
   video,
   projects: {
-    
+
     konark,
     eden,
     sonigara,
