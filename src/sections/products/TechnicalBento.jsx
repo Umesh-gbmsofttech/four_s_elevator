@@ -164,14 +164,8 @@ const TechnicalBento = () => {
         >
 
           {/* LEFT */}
-          <Grid item xs={12} sm={6} md={3}>
-            <Stack
-              direction={{ xs: "row", md: "column" }}
-              spacing={2}
-              sx={{
-                overflowX: { xs: "auto", md: "visible" }
-              }}
-            >
+          <Grid item xs={12} sm={6} md={3} sx={{ display: "flex" }}>
+            <Stack spacing={2} sx={{ width: "100%", height: "100%" }}>
               {current.items.map((item, idx) => (
                 <ButtonBase
                   key={idx}
@@ -185,7 +179,7 @@ const TechnicalBento = () => {
                         ? "2px solid #C5A059"
                         : "1px solid #ddd",
                     bgcolor: "#fff",
-                    minWidth: { xs: 160, md: "auto" }
+                    justifyContent: "flex-start"
                   }}
                 >
                   <Stack direction="row" spacing={2} alignItems="center">
@@ -209,11 +203,12 @@ const TechnicalBento = () => {
           </Grid>
 
           {/* CENTER */}
-          <Grid item xs={12} sm={6} md={5}>
+          <Grid item xs={12} sm={6} md={5} sx={{ display: "flex" }}>
             <Box
               sx={{
-                height: { xs: 280, sm: 340, md: "100%" },
-                minHeight: { md: 420 },
+                width: "100%",
+                height: "100%",
+                minHeight: 420,
                 bgcolor: "#fff",
                 borderRadius: "1.5rem",
                 display: "flex",
@@ -248,8 +243,8 @@ const TechnicalBento = () => {
           </Grid>
 
           {/* RIGHT */}
-          <Grid item xs={12} md={4}>
-            <Stack spacing={2} height="100%">
+          <Grid item xs={12} md={4} sx={{ display: "flex" }}>
+            <Stack spacing={2} sx={{ width: "100%", height: "100%" }}>
 
               <Box
                 sx={{
@@ -273,32 +268,35 @@ const TechnicalBento = () => {
                   flexGrow: 1,
                   display: "flex",
                   flexDirection: "column",
+                  justifyContent: "space-between",
                   border: "1px solid #eee"
                 }}
               >
-                <Typography fontWeight={700}>Description</Typography>
-                <Typography sx={{ mt: 1, fontSize: "0.95rem" }}>
-                  {activeItem.description}
-                </Typography>
+                <Box>
+                  <Typography fontWeight={700}>Description</Typography>
+                  <Typography sx={{ mt: 1, fontSize: "0.95rem" }}>
+                    {activeItem.description}
+                  </Typography>
 
-                <Divider sx={{ my: 2 }} />
+                  <Divider sx={{ my: 2 }} />
 
-                <Typography fontWeight={700}>Why Use This?</Typography>
-                <Typography sx={{ mt: 1, fontSize: "0.95rem" }}>
-                  {activeItem.why}
-                </Typography>
+                  <Typography fontWeight={700}>Why Use This?</Typography>
+                  <Typography sx={{ mt: 1, fontSize: "0.95rem" }}>
+                    {activeItem.why}
+                  </Typography>
 
-                <Divider sx={{ my: 2 }} />
+                  <Divider sx={{ my: 2 }} />
 
-                <Typography>
-                  {current.metrics.label}: {current.metrics.value}
-                </Typography>
+                  <Typography>
+                    {current.metrics.label}: {current.metrics.value}
+                  </Typography>
+                </Box>
 
                 <Button
                   fullWidth
                   startIcon={<EmailOutlinedIcon />}
                   sx={{
-                    mt: "auto",
+                    mt: 2,
                     bgcolor: "#C5A059",
                     color: "#fff",
                     borderRadius: "30px",

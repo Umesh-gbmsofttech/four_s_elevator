@@ -23,10 +23,10 @@ import villa_01 from "./villa-elevator-design-pune-01.png";
 import manual_door from "./manual-door-elevator-pune-01.png";
 
 // Design/Cabin Images
-import gold_cabin from "./gold-finish-elevator-cabin-pune-01.png";
+import gold_cabin from "./ms-cabin-elevator-design-pune-01.png";
 import rose_gold_cabin from "./rose-gold-elevator-cabin-pune-01.png";
-import ss_cabin from "./ss-cabin-passenger-elevator-pune-01.png";
-import ms_cabin from "./ms-cabin-elevator-design-pune-01.png";
+import ss_cabin from "./gold-finish-elevator-cabin-pune-01.png";
+import ms_cabin from "./ss-cabin-passenger-elevator-pune-01.png";
 import stretcher_cabin from "./stretcher-elevator-cabin-pune-01.png";
 import ceiling_panel from "./custom-elevator-ceiling-panel-pune-01.png";
 
