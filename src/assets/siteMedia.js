@@ -2,7 +2,6 @@ import heroVideo from "./Ani2.mp4";
 import video from "./Ani 3.mp4";
 
 // Project Images
-import about from "./About.png";
 
 import konark from "./konark-tower-elevator-project-balewadi.png";
 import eden from "./eden-space-elevator-project-pune.png";
@@ -13,10 +12,12 @@ import vision_eternity from "./vision-eternity-elevator-project-pune.png";
 // Product Images
 import passenger_01 from "./passenger-elevator-installation-pune-01.png";
 import home_02 from "./home-elevator-installation-pune-02.png";
-import hospital_01 from "./hospital-lift-installation-pune-01.png";
-import goods_01 from "./goods-lift-installation-pune-01.png";
-import panoramic_01 from "./panoramic-elevator-design-pune-01.png";
-import hydraulic_01 from "./hydraulic-elevator-system-pune-01.png";
+import hospital_01 from "./Hospital.png";
+import goods_01 from "./Goods.png";
+import panoramic_01 from "./Pano.png";
+import hydraulic_01 from "./Hydralic.png";
+import car from "./Motors.png";
+import dumbwaiter from "./Dumbwaiter.png";
 import commercial_02 from "./commercial-elevator-installation-pune-02.png";
 import villa_01 from "./villa-elevator-design-pune-01.png";
 import manual_door from "./manual-door-elevator-pune-01.png";
@@ -47,7 +48,7 @@ export const siteMedia = {
   heroVideo,
   video,
   projects: {
-    about,
+    
     konark,
     eden,
     sonigara,
@@ -66,8 +67,8 @@ export const siteMedia = {
     hydraulic: hydraulic_01,
     commercial: commercial_02,
     villa: villa_01,
-    car: commercial_02,
-    dumbwaiter: manual_door,
+    car: car,
+    dumbwaiter: dumbwaiter,
   },
   designs: {
     gold_cabin,

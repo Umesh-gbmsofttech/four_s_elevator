@@ -120,40 +120,28 @@ const TechnicalBento = () => {
     <Box
       sx={{
         minHeight: "100vh",
-        py: "clamp(3rem, 6vh, 6rem)",
+        py: { xs: 4, md: 6 },
         bgcolor: "#F8F9FA",
         display: "flex",
         alignItems: "center"
       }}
     >
-      <Container
-        maxWidth="xl"
-        sx={{
-          px: "clamp(1rem, 5vw, 6rem)"
-        }}
-      >
+      <Container maxWidth="xl" sx={{ px: { xs: 2, md: 6 } }}>
 
         {/* HEADER */}
-        <Stack
-          spacing="clamp(1rem, 2vh, 2rem)"
-          alignItems="center"
-          textAlign="center"
-          sx={{ mb: "clamp(2rem, 5vh, 4rem)" }}
-        >
-          <Box>
-            <Typography sx={{ color: "#C5A059", fontWeight: 900 }}>
-              {current.subtitle}
-            </Typography>
+        <Stack spacing={2} alignItems="center" textAlign="center" mb={4}>
+          <Typography sx={{ color: "#C5A059", fontWeight: 900 }}>
+            {current.subtitle}
+          </Typography>
 
-            <Typography
-              sx={{
-                fontWeight: 900,
-                fontSize: "clamp(1.5rem, 3vw, 2.8rem)"
-              }}
-            >
-              {current.title}
-            </Typography>
-          </Box>
+          <Typography
+            sx={{
+              fontWeight: 900,
+              fontSize: { xs: "1.5rem", md: "2.5rem" }
+            }}
+          >
+            {current.title}
+          </Typography>
 
           <Tabs
             value={activeTab}
@@ -169,11 +157,21 @@ const TechnicalBento = () => {
         </Stack>
 
         {/* MAIN GRID */}
-        <Grid container spacing={15} alignItems="stretch">
+        <Grid
+          container
+          spacing={{ xs: 3, sm: 4, md: 6 }}
+          alignItems="stretch"
+        >
 
           {/* LEFT */}
-          <Grid item xs={12} md={3}>
-            <Stack spacing={2}>
+          <Grid item xs={12} sm={6} md={3}>
+            <Stack
+              direction={{ xs: "row", md: "column" }}
+              spacing={2}
+              sx={{
+                overflowX: { xs: "auto", md: "visible" }
+              }}
+            >
               {current.items.map((item, idx) => (
                 <ButtonBase
                   key={idx}
@@ -187,20 +185,20 @@ const TechnicalBento = () => {
                         ? "2px solid #C5A059"
                         : "1px solid #ddd",
                     bgcolor: "#fff",
-                    justifyContent: "flex-start"
+                    minWidth: { xs: 160, md: "auto" }
                   }}
                 >
                   <Stack direction="row" spacing={2} alignItems="center">
                     <Box
                       component="img"
                       src={item.img}
-                      sx={{ width: 55, height: 55 }}
+                      sx={{ width: 45, height: 45 }}
                     />
                     <Box>
                       <Typography fontWeight={700}>
                         {item.name}
                       </Typography>
-                      <Typography fontSize="0.8rem">
+                      <Typography fontSize="0.75rem">
                         {item.detail}
                       </Typography>
                     </Box>
@@ -211,11 +209,11 @@ const TechnicalBento = () => {
           </Grid>
 
           {/* CENTER */}
-          <Grid item xs={12} md={5}>
+          <Grid item xs={12} sm={6} md={5}>
             <Box
               sx={{
-                height: "100%",
-                minHeight: "420px",
+                height: { xs: 280, sm: 340, md: "100%" },
+                minHeight: { md: 420 },
                 bgcolor: "#fff",
                 borderRadius: "1.5rem",
                 display: "flex",
@@ -240,8 +238,8 @@ const TechnicalBento = () => {
                   component="img"
                   src={activeItem.img}
                   sx={{
-                    width: "80%",
-                    maxWidth: 320,
+                    width: "75%",
+                    maxWidth: 260,
                     objectFit: "contain"
                   }}
                 />
@@ -255,7 +253,7 @@ const TechnicalBento = () => {
 
               <Box
                 sx={{
-                  p: 3,
+                  p: 2.5,
                   bgcolor: "#C5A059",
                   color: "#fff",
                   borderRadius: "1rem"
@@ -269,7 +267,7 @@ const TechnicalBento = () => {
 
               <Box
                 sx={{
-                  p: 3,
+                  p: 2.5,
                   bgcolor: "#fff",
                   borderRadius: "1rem",
                   flexGrow: 1,
@@ -279,14 +277,14 @@ const TechnicalBento = () => {
                 }}
               >
                 <Typography fontWeight={700}>Description</Typography>
-                <Typography sx={{ mt: 1 }}>
+                <Typography sx={{ mt: 1, fontSize: "0.95rem" }}>
                   {activeItem.description}
                 </Typography>
 
                 <Divider sx={{ my: 2 }} />
 
                 <Typography fontWeight={700}>Why Use This?</Typography>
-                <Typography sx={{ mt: 1 }}>
+                <Typography sx={{ mt: 1, fontSize: "0.95rem" }}>
                   {activeItem.why}
                 </Typography>
 
