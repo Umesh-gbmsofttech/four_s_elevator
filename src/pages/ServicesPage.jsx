@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Box, Container, Stack, Typography, alpha } from "@mui/material";
 import { servicesContent } from "../content/siteContent";
 import { motion, useScroll, useSpring } from "framer-motion";

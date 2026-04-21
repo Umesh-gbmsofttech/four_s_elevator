@@ -111,7 +111,7 @@ const TechnicalBento = () => {
         {
           name: "Glass Door",
           detail: "Modern",
-          img: siteMedia.products?.commercial,
+          img: siteMedia.services?.installation,
           description:
             "Full-vision glass landing door that keeps the lobby visually open while maintaining a refined automatic entrance experience.",
           useCase:
