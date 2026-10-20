@@ -150,9 +150,9 @@ const Intro = () => {
           </Box>
         </Reveal>
 
-        <Grid container spacing={2} alignItems="center" justifyContent="center">
+        <Grid container spacing={2} sx={{ alignItems: "center", justifyContent: "center" }}>
           {/* LEFT CARDS */}
-          <Grid item xs={12} md={3.5} order={{ xs: 2, md: 1 }}>
+          <Grid size={{ xs: 12, md: 3.5 }} sx={{ order: { xs: 2, md: 1 } }}>
             <Stack spacing={8}>
               {[0, 1].map((index) => (
                 <Reveal key={index} variant="fadeRight">
@@ -160,9 +160,11 @@ const Intro = () => {
                     <Stack
                       direction="row"
                       spacing={1.5}
-                      alignItems="center"
-                      justifyContent={{ xs: "flex-start", md: "flex-end" }}
-                      sx={{ mb: 1.5 }}
+                      sx={{
+                        alignItems: "center",
+                        justifyContent: { xs: "flex-start", md: "flex-end" },
+                        mb: 1.5,
+                      }}
                     >
                       <Typography
                         sx={{
@@ -194,7 +196,7 @@ const Intro = () => {
           </Grid>
 
           {/* CENTER IMAGE */}
-          <Grid item xs={12} md={5} order={{ xs: 1, md: 2 }} sx={{ display: "flex", justifyContent: "center" }}>
+          <Grid size={{ xs: 12, md: 5 }} sx={{ display: "flex", justifyContent: "center", order: { xs: 1, md: 2 } }}>
             <Reveal>
               <Box
                 sx={{
@@ -217,12 +219,12 @@ const Intro = () => {
           </Grid>
 
           {/* RIGHT CARDS */}
-          <Grid item xs={12} md={3.5} order={{ xs: 3, md: 3 }}>
+          <Grid size={{ xs: 12, md: 3.5 }} sx={{ order: { xs: 3, md: 3 } }}>
             <Stack spacing={8}>
               {[2, 3].map((index) => (
                 <Reveal key={index} variant="fadeLeft">
                   <Box sx={cardStyle}>
-                    <Stack direction="row" spacing={10} alignItems="center" sx={{ mb: 1.5 }}>
+                    <Stack direction="row" spacing={10} sx={{ alignItems: "center", mb: 1.5 }}>
                       <Box sx={iconStyle}>{cardIcons[index]}</Box>
 
                       <Typography

@@ -108,12 +108,28 @@ const Footer = ({ onOpenContactModal }) => {
             <Typography variant="overline" sx={{ fontWeight: 900, mb: 4, display: "block", color: "#d6a53a", letterSpacing: 3 }}>
               SOLUTIONS
             </Typography>
-            <Stack spacing={2} sx={{ color: alpha("#fff", 0.5), fontSize: "0.85rem", fontWeight: 600 }}>
-              {productsContent.categories.slice(0, 5).map((cat) => (
-                <Box key={cat.title} sx={{ transition: "0.3s", "&:hover": { color: "#d6a53a", cursor: "pointer" } }}>
-                  {cat.title}
-                </Box>
-              ))}
+            <Stack spacing={2}>
+              {productsContent.categories.slice(0, 5).map((cat) => {
+                const productKey = cat.imageKey;
+                return (
+                  <FooterLink
+                    key={cat.title}
+                    to={`/products?product=${productKey}#${productKey}`}
+                    state={{ product: productKey }}
+                    onClick={() => {
+                      if (window.location.pathname === "/products") {
+                        window.dispatchEvent(
+                          new CustomEvent("highlight-product", {
+                            detail: productKey,
+                          })
+                        );
+                      }
+                    }}
+                  >
+                    {cat.title}
+                  </FooterLink>
+                );
+              })}
             </Stack>
           </Grid>
 

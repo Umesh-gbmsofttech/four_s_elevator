@@ -118,12 +118,12 @@ const AdvanceEnginer = () => {
         <Stack 
           direction={{ xs: "column", lg: "row" }} 
           spacing={{ xs: 8, lg: 15 }} 
-          alignItems="flex-start"
+          sx={{ alignItems: "flex-start" }}
         >
           
           {/* LEFT CONTENT: CINEMATIC SHOWCASE */}
           <Box sx={{ flex: 1, width: "100%" }}>
-            <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 3 }}>
+            <Stack direction="row" spacing={2} sx={{ mb: 3, alignItems: "center" }}>
               <PrecisionManufacturingIcon sx={{ color: BRAND_BLUE }} />
               <Typography variant="overline" sx={{ letterSpacing: 4, fontWeight: 900, color: BRAND_BLUE }}>
                 Technical Specification

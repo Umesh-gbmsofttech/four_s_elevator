@@ -62,9 +62,9 @@ const AboutMission = () => {
       />
 
       <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
-        <Grid container spacing={8} alignItems="center">
+        <Grid container spacing={8} sx={{ alignItems: "center" }}>
           
-          <Grid item xs={12} lg={5}>
+          <Grid size={{ xs: 12, lg: 5 }}>
             <motion.div {...fadeInUp}>
               <Typography
                 sx={{
@@ -244,7 +244,7 @@ const AboutMission = () => {
           </Grid>
 
           {/* RIGHT SIDE */}
-          <Grid item xs={12} lg={7}>
+          <Grid size={{ xs: 12, lg: 7 }}>
             <Stack spacing={6}>
               {/* Mission */}
               <motion.div {...fadeInUp} transition={{ delay: 0.2 }}>

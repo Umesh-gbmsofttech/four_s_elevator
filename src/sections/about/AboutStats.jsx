@@ -94,13 +94,11 @@ const AboutStats = () => {
         <Grid 
           container 
           spacing={{ xs: 4, md: 17}} 
-          justifyContent="center" 
-          alignItems="center"
+          sx={{ justifyContent: "center", alignItems: "center" }}
         >
           {stats.map((s, i) => (
             <Grid 
-              item 
-              xs={12} sm={6} md={3} 
+              size={{ xs: 12, sm: 6, md: 3 }} 
               key={i}
               sx={{ display: 'flex', justifyContent: 'center' }}
             >
@@ -120,7 +118,7 @@ const AboutStats = () => {
               >
                 <RollingNumber value={s.value} suffix={s.suffix} delay={i * 0.05} />
 
-                <Stack alignItems="center" spacing={1}>
+                <Stack sx={{ alignItems: "center" }} spacing={1}>
                   <Typography
                     sx={{
                       fontSize: "0.75rem", // Slightly smaller for precision

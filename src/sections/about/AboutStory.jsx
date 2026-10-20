@@ -44,10 +44,10 @@ const AboutStory = () => {
       }}
     >
       <Container maxWidth="lg">
-        <Grid container spacing={{ xs: 6, md: 10 }} alignItems="center">
+        <Grid container spacing={{ xs: 6, md: 10 }} sx={{ alignItems: "center" }}>
           
           {/* LEFT: IMAGE (FIXED SIZE + SLIDESHOW) */}
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Reveal>
               <Box
                 sx={{
@@ -87,7 +87,7 @@ const AboutStory = () => {
           </Grid>
 
           {/* RIGHT: CONTENT (UNCHANGED) */}
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Stack spacing={3} sx={{ maxWidth: 520 }}>
 
               <Reveal>

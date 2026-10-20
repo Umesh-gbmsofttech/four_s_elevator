@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -12,15 +12,84 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import { motion } from "framer-motion";
+import { keyframes } from "@mui/system";
 import { siteMedia } from "../../assets/siteMedia";
 
-const ProductCard = ({ item, index }) => {
+const borderGlowPulse = keyframes`
+  0% {
+    border-color: rgba(214, 165, 58, 0);
+    box-shadow: 0 0 0 0 rgba(214, 165, 58, 0);
+    opacity: 0;
+  }
+  15% {
+    border-color: #d6a53a;
+    box-shadow: 0 0 0 4px #d6a53a, 0 0 35px 8px rgba(214, 165, 58, 0.7);
+    opacity: 1;
+  }
+  35% {
+    border-color: #ffe082;
+    box-shadow: 0 0 0 5px #d6a53a, 0 0 45px 12px rgba(214, 165, 58, 0.85);
+    opacity: 1;
+  }
+  60% {
+    border-color: #d6a53a;
+    box-shadow: 0 0 0 4px #d6a53a, 0 0 32px 8px rgba(214, 165, 58, 0.65);
+    opacity: 1;
+  }
+  85% {
+    border-color: rgba(214, 165, 58, 0.8);
+    box-shadow: 0 0 0 2px rgba(214, 165, 58, 0.4), 0 0 18px 4px rgba(214, 165, 58, 0.35);
+    opacity: 0.8;
+  }
+  100% {
+    border-color: rgba(214, 165, 58, 0);
+    box-shadow: 0 0 0 0 rgba(214, 165, 58, 0);
+    opacity: 0;
+  }
+`;
+
+const rippleRing = keyframes`
+  0% {
+    inset: -2px;
+    opacity: 0.9;
+    border-width: 2px;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    inset: -16px;
+    opacity: 0;
+    border-width: 4px;
+  }
+`;
+
+const ProductCard = ({
+  item,
+  index,
+  isHighlighted = false,
+  animationTrigger = 0,
+  onAnimationComplete,
+}) => {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (isHighlighted) {
+      const timer = setTimeout(() => {
+        if (onAnimationComplete) {
+          onAnimationComplete(item.imageKey);
+        }
+      }, 2500);
+      return () => clearTimeout(timer);
+    }
+  }, [isHighlighted, animationTrigger, item.imageKey, onAnimationComplete]);
 
   return (
     <>
       {/* CARD */}
       <Box
+        id={item.imageKey}
+        data-product-card={item.imageKey}
         component={motion.div}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -31,8 +100,55 @@ const ProductCard = ({ item, index }) => {
           height: "100%",
           display: "flex",
           flexDirection: "column",
+          position: "relative",
+          p: 1.5,
+          borderRadius: "18px",
+          bgcolor: "#ffffff",
+          border: "2px solid",
+          borderColor: isHighlighted ? alpha("#d6a53a", 0.6) : "rgba(16, 35, 50, 0.08)",
+          boxShadow: isHighlighted
+            ? `0 14px 40px ${alpha("#d6a53a", 0.25)}`
+            : `0 8px 25px ${alpha("#000", 0.05)}`,
+          transform: isHighlighted ? "translateY(-6px)" : "none",
+          scrollMarginTop: { xs: "90px", md: "130px" },
+          transition: "border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease",
+          "&:hover": {
+            borderColor: alpha("#d6a53a", 0.4),
+            boxShadow: `0 12px 30px ${alpha("#000", 0.08)}`,
+          },
         }}
       >
+        {/* ANIMATED BORDER GLOW OVERLAY */}
+        {isHighlighted && (
+          <Box
+            key={`border-glow-${animationTrigger}`}
+            sx={{
+              position: "absolute",
+              inset: -2,
+              borderRadius: "20px",
+              pointerEvents: "none",
+              border: "3px solid #d6a53a",
+              animation: `${borderGlowPulse} 2.4s cubic-bezier(0.22, 1, 0.36, 1) 1 forwards`,
+              zIndex: 3,
+            }}
+          />
+        )}
+
+        {/* ANIMATED BORDER RIPPLE OVERLAY */}
+        {isHighlighted && (
+          <Box
+            key={`border-ripple-${animationTrigger}`}
+            sx={{
+              position: "absolute",
+              inset: 0,
+              borderRadius: "18px",
+              pointerEvents: "none",
+              border: "2px solid #d6a53a",
+              animation: `${rippleRing} 1.6s ease-out 1 forwards`,
+              zIndex: 2,
+            }}
+          />
+        )}
         {/* IMAGE */}
         <Box
           sx={{

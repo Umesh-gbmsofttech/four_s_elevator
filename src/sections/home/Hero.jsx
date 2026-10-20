@@ -62,7 +62,7 @@ const Hero = () => {
           py: { xs: 10, md: 14 },
         }}
       >
-        <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center">
+        <Grid container spacing={{ xs: 6, md: 8 }} sx={{ alignItems: "center" }}>
           {/* LEFT CONTENT */}
           <Grid size={{ xs: 12, md: 7 }}>
             <Reveal variant={fadeLeft}>

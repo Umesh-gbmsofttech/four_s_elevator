@@ -60,7 +60,7 @@ const AboutValues = () => {
       <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
         
         {/* HEADER */}
-        <Stack spacing={4} alignItems="center" mb={{ xs: 4, md: 6 }}>
+        <Stack spacing={4} sx={{ alignItems: "center", mb: { xs: 4, md: 6 } }}>
           <Typography
             sx={{
               color: gold,

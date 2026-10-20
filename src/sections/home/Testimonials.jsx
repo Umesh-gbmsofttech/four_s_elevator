@@ -8,7 +8,7 @@ import {
   Stack
 } from "@mui/material";
 import { ArrowBack, ArrowForward } from "@mui/icons-material";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 const ORANGE = "#C5A059";
 
@@ -42,13 +42,6 @@ const testimonials = [
 const Testimonials = () => {
   const [index, setIndex] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleNext();
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [index]);
-
   const handleNext = () => {
     setIndex((prev) => (prev + 1) % testimonials.length);
   };
@@ -58,6 +51,13 @@ const Testimonials = () => {
       prev === 0 ? testimonials.length - 1 : prev - 1
     );
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext();
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <Box sx={{ bgcolor: "#f5f7f9", py: { xs: "8vh", md: "12vh" } }}>
@@ -109,7 +109,7 @@ const Testimonials = () => {
             </Typography>
 
             {/* CONTROLS */}
-            <Stack direction="row" spacing={2} mt={4} alignItems="center">
+            <Stack direction="row" spacing={2} sx={{ mt: 4, alignItems: "center" }}>
               <Box
                 sx={{
                   width: 70,
@@ -179,7 +179,7 @@ const Testimonials = () => {
                   “{testimonials[index].quote}”
                 </Typography>
 
-                <Stack direction="row" spacing={2} alignItems="center">
+                <Stack direction="row" spacing={2} sx={{ alignItems: "center" }}>
                   <Box
                     sx={{
                       width: 60,
